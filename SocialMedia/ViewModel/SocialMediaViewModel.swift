@@ -12,20 +12,13 @@ class SocialMediaViewModel: ObservableObject {
     @Published var email = ""
     @Published var password = ""
     
-    func signIn() {
+    
+    func signIn() async throws {
         guard !email.isEmpty, !password.isEmpty else {
             print("No email or password found")
             return
         }
         
-        Task {
-            do {
-                let returnedUserData = try await AuthenticationManager.shared.createUser(email: email, password: password)
-                print("Success: ")
-                print(returnedUserData)
-            } catch {
-                print("Error: \(error)")
-            }
-        }
+        let returnedUserData = try await AuthenticationManager.shared.createUser(email: email, password: password)
     }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct AuthentificationView: View {
     
     @EnvironmentObject private var viewModel: SocialMediaViewModel
+    @Binding var showSignInView: Bool
     
     var body: some View {
         ZStack {
@@ -28,7 +29,7 @@ struct AuthentificationView: View {
                         .fontWeight(.semibold)
                     
                     NavigationLink {
-                        SignInEmailView()
+                        SignInEmailView(showSignInView: $showSignInView)
                             .environmentObject(SocialMediaViewModel())
                     } label: {
                         Text("Sign up with Email")
@@ -51,7 +52,7 @@ struct AuthentificationView: View {
                         .foregroundStyle(.secondary)
                     
                     NavigationLink {
-                        SignInEmailView()
+                        SignInEmailView(showSignInView: $showSignInView)
                             .environmentObject(SocialMediaViewModel())
                     } label: {
                         Text("Sign in with Email")
@@ -75,7 +76,7 @@ struct AuthentificationView: View {
 
 #Preview {
     NavigationStack {
-        AuthentificationView()
+        AuthentificationView(showSignInView: .constant(false))
             .environmentObject(SocialMediaViewModel())
     }
 }

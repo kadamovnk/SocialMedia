@@ -10,6 +10,7 @@ import SwiftUI
 struct SignInEmailView: View {
     
     @EnvironmentObject private var viewModel: SocialMediaViewModel
+    @Binding var showSignInView: Bool
     
     var body: some View {
         
@@ -28,7 +29,14 @@ struct SignInEmailView: View {
             Spacer()
             
             Button {
-                viewModel.signIn()
+                Task {
+                    do {
+                        try await viewModel.signIn()
+                        showSignInView = false
+                    } catch {
+                        print(error)
+                    }
+                }
             } label: {
                 Text("Sign in")
                     .font(.headline)
@@ -47,7 +55,7 @@ struct SignInEmailView: View {
 
 #Preview {
     NavigationStack {
-        SignInEmailView()
+        SignInEmailView(showSignInView: .constant(false))
             .environmentObject(SocialMediaViewModel())
     }
 }
