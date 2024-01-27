@@ -8,11 +8,36 @@
 import SwiftUI
 
 struct MainView: View {
+    @Binding var showSignInView: Bool
+    
     var body: some View {
         TabView {
-            Text("hello")
-                .frame(maxWidth: .infinity)
-                .tabItem {
+            NavigationView {
+                Text("There will be your feed...")
+                    .overlay {
+                        RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                            .stroke(lineWidth: 8)
+                            .frame(width: 300, height: 400)
+                        Image(systemName: "heart.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .foregroundStyle(.red)
+                            .frame(height: 30)
+                            .offset(x: -115, y: 165)
+                        Image(systemName: "bubble.left.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 30)
+                            .offset(x: -70, y: 165)
+                        Image(systemName: "paperplane")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 30)
+                            .offset(x: -25, y: 165)
+                    }
+                    .navigationTitle("Home")
+            }
+            .tabItem {
                     Image(systemName: "house.fill")
                         .resizable()
                         .scaledToFit()
@@ -21,42 +46,62 @@ struct MainView: View {
                         .font(.caption)
                         .fontWeight(.semibold)
                 }
-                .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        
-                    } label: {
-                        Text("Edit")
-                    }
+            NavigationView {
+                Text("Search...")
+                    .searchable(text: .constant("Searching..."))
+                    .navigationTitle("Search")
+            }
+                .tabItem {
+                    Image(systemName: "magnifyingglass.circle.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 30)
+                    Text("Search")
+                        .font(.caption)
+                        .fontWeight(.semibold)
+                }
+            NavigationView {
+                Text("Create your post here...")
+                    .navigationTitle("Create a post")
+            }
+                .tabItem {
+                    Image(systemName: "plus.app.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 30)
+                    Text("Post")
+                        .font(.caption)
+                        .fontWeight(.semibold)
+                }
+            MessagesView()
+                .tabItem {
+                    Image(systemName: "message.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 30)
+                    Text("Messages")
+                        .font(.caption)
+                        .fontWeight(.semibold)
+
+                }
+            SettingsView(showSignInView: $showSignInView)
+                .tabItem {
+                    Image(systemName: "person.crop.circle.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 30)
+                    Text("Profile")
+                        .font(.caption)
+                        .fontWeight(.semibold)
                 }
                 
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        
-                    } label: {
-                        HStack(spacing: 16) {
-                            Button {
-                                
-                            } label: {
-                                Image(systemName: "plus.circle")
-                            }
-                            
-                            Button {
-                                
-                            } label: {
-                                Image(systemName: "square.and.pencil")
-                            }
-                        }
-                    }
-                }
-            }
         }
     }
 }
 
 #Preview {
     NavigationStack {
-        MainView()
+        MainView(showSignInView: .constant(false))
     }
 }
 

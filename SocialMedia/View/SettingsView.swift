@@ -38,34 +38,37 @@ struct SettingsView: View {
     @Binding var showSignInView: Bool
     
     var body: some View {
-        List {
-            HStack(spacing: 15) {
-                Image(systemName: "person.crop.circle")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 60, height: 60)
-                VStack(alignment: .leading) {
-                    Text("Nodirbek Kadamov")
-                        .font(.title2)
-                    Text("email@email.com")
-                        .font(.subheadline)
-                }
+        NavigationView {
+            List {
+                profileSection
+                emailSection
+                accountSection
             }
-            
-            emailSection
-            accountSection
+            .navigationTitle("Profile")
         }
-        .navigationTitle("Profile")
     }
 }
 
 #Preview {
-    NavigationStack {
-        SettingsView(showSignInView: .constant(false))
-    }
+    SettingsView(showSignInView: .constant(false))
 }
 
 extension SettingsView {
+    
+    private var profileSection: some View {
+        HStack(spacing: 15) {
+            Image(systemName: "person.crop.circle")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 60, height: 60)
+            VStack(alignment: .leading) {
+                Text("Nodirbek Kadamov")
+                    .font(.title2)
+                Text("kadamovnk@icloud.com")
+                    .font(.subheadline)
+            }
+        }
+    }
     
     private var accountSection: some View {
         Section {
