@@ -16,10 +16,8 @@ struct SocialMediaApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
-                AuthentificationView()
-                    .environmentObject(viewModel)
-            }
+           RootView()
+                .environmentObject(viewModel)
         }
     }
 }
