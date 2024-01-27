@@ -31,8 +31,17 @@ struct SignInEmailView: View {
             Button {
                 Task {
                     do {
+                        try await viewModel.signUp()
+                        showSignInView = false
+                        return
+                    } catch {
+                        print(error)
+                    }
+                    
+                    do {
                         try await viewModel.signIn()
                         showSignInView = false
+                        return
                     } catch {
                         print(error)
                     }
