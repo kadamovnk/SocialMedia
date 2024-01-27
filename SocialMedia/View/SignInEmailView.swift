@@ -33,6 +33,7 @@ struct SignInEmailView: View {
                     do {
                         try await viewModel.signUp()
                         showSignInView = false
+                        print("Signed Up")
                         return
                     } catch {
                         print(error)
@@ -41,6 +42,7 @@ struct SignInEmailView: View {
                     do {
                         try await viewModel.signIn()
                         showSignInView = false
+                        print("Signed In")
                         return
                     } catch {
                         print(error)

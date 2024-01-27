@@ -9,14 +9,19 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        ScrollView {
-            VStack {
-                ForEach(0..<50) { index in
-                    Text("hello")
-                        .frame(maxWidth: .infinity)
+        TabView {
+            Text("hello")
+                .frame(maxWidth: .infinity)
+                .tabItem {
+                    Image(systemName: "house.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 30)
+                    Text("Home")
+                        .font(.caption)
+                        .fontWeight(.semibold)
                 }
-            }
-            .toolbar {
+                .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
                         
@@ -45,11 +50,6 @@ struct MainView: View {
                     }
                 }
             }
-            
-            }
-        .overlay(alignment: .bottom) {
-            TabBarView()
-                .frame(width: UIScreen.main.bounds.width)
         }
     }
 }
@@ -57,5 +57,11 @@ struct MainView: View {
 #Preview {
     NavigationStack {
         MainView()
+    }
+}
+
+extension MainView {
+    private var toolBarItems: some View {
+        Text("hi")
     }
 }

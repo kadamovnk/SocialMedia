@@ -22,11 +22,13 @@ struct AuthentificationView: View {
                     Image(systemName: "figure.socialdance")
                         .resizable()
                         .scaledToFit()
-                        .frame(height: 100)
-                        .padding(20)
-                    Text("First Sign Up to Get Started")
+                        .frame(height: 80)
+                    Text("Social Media App")
                         .font(.title)
-                        .fontWeight(.semibold)
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        .padding(30)
+                    Text("First Sign Up to Get Started")
+                        .font(.headline)
                     
                     NavigationLink {
                         SignInEmailView(showSignInView: $showSignInView)
@@ -70,7 +72,7 @@ struct AuthentificationView: View {
             Spacer()
         }
         .padding()
-        .navigationTitle("SocialMedia")
+        .navigationTitle("Welcome")
     }
 }
 

@@ -27,6 +27,9 @@ final class SettingsViewModel:ObservableObject {
         let password = "12345678"
         try await AuthenticationManager.shared.updatePassword(password: password)
     }
+    func deleteAccount() async throws {
+        try await AuthenticationManager.shared.deleteAccount()
+    }
 }
 
 struct SettingsView: View {
@@ -36,6 +39,36 @@ struct SettingsView: View {
     
     var body: some View {
         List {
+            HStack(spacing: 15) {
+                Image(systemName: "person.crop.circle")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 60, height: 60)
+                VStack(alignment: .leading) {
+                    Text("Nodirbek Kadamov")
+                        .font(.title2)
+                    Text("email@email.com")
+                        .font(.subheadline)
+                }
+            }
+            
+            emailSection
+            accountSection
+        }
+        .navigationTitle("Profile")
+    }
+}
+
+#Preview {
+    NavigationStack {
+        SettingsView(showSignInView: .constant(false))
+    }
+}
+
+extension SettingsView {
+    
+    private var accountSection: some View {
+        Section {
             Button {
                 Task {
                     do {
@@ -50,18 +83,24 @@ struct SettingsView: View {
                 Text("Log out")
             }
             
-            
+            Button {
+                Task {
+                    do {
+                        try await viewModel.deleteAccount()
+                        showSignInView = true
+                        print("Account deleted")
+                    } catch {
+                        print(error)
+                    }
+                }
+            } label: {
+                Text("Delete account")
+                    .foregroundStyle(.red)
+            }
+        } header: {
+            Text("Account")
         }
     }
-}
-
-#Preview {
-    NavigationStack {
-        SettingsView(showSignInView: .constant(false))
-    }
-}
-
-extension SettingsView {
     
     private var emailSection: some View {
         
@@ -105,8 +144,8 @@ extension SettingsView {
                 Text("Update Password")
             }
         } header: {
-            "Email functions"
+            Text("Email functions")
         }
-
+        
     }
 }
