@@ -44,9 +44,8 @@ struct SignInEmailView: View {
                 Task {
                     do {
                         try await viewModel.signUp()
-                        //showSignInView = false
+                        showSignInView = false
                         print("Signed Up")
-                        //NameAfterSignUpView(showSignInView: $showSignInView)
                         return
                     } catch {
                         print(error)

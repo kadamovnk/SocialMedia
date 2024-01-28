@@ -34,10 +34,13 @@ final class SettingsViewModel:ObservableObject {
 
 struct SettingsView: View {
     
-    @State private var userEmail: String = "No user signed in"
     @StateObject private var viewModel = SettingsViewModel()
     @Binding var showSignInView: Bool
+    @State private var userEmail: String = "No user signed in"
     @State private var updateNameCover: Bool = false
+    @State private var updatePictureCover: Bool = false
+    @State private var updatePasswordCover: Bool = false
+    @State private var updateEmailCover: Bool = false
     @State private var email: String = ""
     @State private var name: String = ""
     
@@ -52,6 +55,19 @@ struct SettingsView: View {
                 name = AuthenticationManager.shared.fetchUserName()
             }), content: {
                 NameUpdateView(updateNameCover: $updateNameCover)
+            })
+            .sheet(isPresented: $updatePictureCover, onDismiss: .some({
+                // fetch picture
+            }), content: {
+                PictureUpdateView(updatePictureCover: $updatePictureCover)
+            })
+            .sheet(isPresented: $updateEmailCover, onDismiss: {
+                email = AuthenticationManager.shared.fetchUserEmail()
+            }, content: {
+                EmailUpdateView(updateEmailCover: $updateEmailCover)
+            })
+            .sheet(isPresented: $updatePasswordCover, content: {
+                PasswordUpdateView(updatePasswordCover: $updatePasswordCover)
             })
             .navigationTitle("Profile")
             .onAppear {
@@ -87,9 +103,14 @@ extension SettingsView {
     private var accountSection: some View {
         Section {
             Button {
-                updateNameCover.toggle()
+                updateNameCover = true
             } label: {
-                Text("Update your name")
+                Text("Update Name")
+            }
+            Button {
+                updatePictureCover = true
+            } label: {
+                Text("Update Picture")
             }
             Button {
                 Task {
@@ -102,7 +123,7 @@ extension SettingsView {
                     }
                 }
             } label: {
-                Text("Log out")
+                Text("Log Out")
             }
             
             Button {
@@ -116,7 +137,7 @@ extension SettingsView {
                     }
                 }
             } label: {
-                Text("Delete account")
+                Text("Delete Account")
                     .foregroundStyle(.red)
             }
         } header: {
@@ -141,30 +162,17 @@ extension SettingsView {
             }
             
             Button {
-                Task {
-                    do {
-                        try await viewModel.updateEmail()
-                        print("Email updated!")
-                    } catch {
-                        print(error)
-                    }
-                }
+                updateEmailCover = true
             } label: {
                 Text("Update Email")
             }
             
             Button {
-                Task {
-                    do {
-                        try await viewModel.updatePassword()
-                        print("Password updated!")
-                    } catch {
-                        print(error)
-                    }
-                }
+                updatePasswordCover = true
             } label: {
                 Text("Update Password")
             }
+            
         } header: {
             Text("Email functions")
         }

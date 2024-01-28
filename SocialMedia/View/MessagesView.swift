@@ -18,7 +18,7 @@ struct MessagesView: View {
                     CustomCell()
                 }
             }
-            .navigationTitle("Messages")
+            .navigationBarTitle("Messages", displayMode: .inline)
             
             .searchable(text: $searchText)
             

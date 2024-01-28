@@ -16,14 +16,15 @@ struct RootView: View {
         ZStack {
             NavigationView {
                 MainView(showSignInView: $showSignInView)
-                //SettingsView(showSignInView: $showSignInView)
             }
         }
         .onAppear {
             let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()
             self.showSignInView = authUser == nil
         }
-        .fullScreenCover(isPresented: $showSignInView) {
+        .fullScreenCover(isPresented: $showSignInView, onDismiss: {
+            // need to refresh main screen
+        }) {
             NavigationStack {
                 AuthentificationView(showSignInView: $showSignInView)
                     .environmentObject(SocialMediaViewModel())

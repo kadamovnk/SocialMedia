@@ -51,9 +51,6 @@ final class AuthenticationManager {
         }
         let changeRequest = user.createProfileChangeRequest()
         changeRequest.displayName = displayName
-//        changeRequest.commitChanges { error in
-//            //
-//        }
         try await changeRequest.commitChanges()
     }
     

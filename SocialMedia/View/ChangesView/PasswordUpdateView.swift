@@ -1,5 +1,5 @@
 //
-//  nameAfterSignUpView.swift
+//  PasswordUpdateView.swift
 //  SocialMedia
 //
 //  Created by Nodirbek Kadamov on 1/28/24.
@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct NameUpdateView: View {
+struct PasswordUpdateView: View {
     
-    @State private var name: String = ""
-    @Binding var updateNameCover: Bool
+    @State private var password: String = ""
+    @Binding var updatePasswordCover: Bool
     
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
-                Text("Enter your new name:")
-                TextField("Name: ", text: $name)
+                Text("Enter your new password:")
+                SecureField("Password: ", text: $password)
                     .padding()
                     .background(Color.gray.opacity(0.4))
                     .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -27,11 +27,11 @@ struct NameUpdateView: View {
                 Button {
                     Task {
                         do {
-                            try await AuthenticationManager.shared.setUserName(displayName: name)
-                            print("Name successfully updated")
-                            updateNameCover = false
+                            try await AuthenticationManager.shared.updatePassword(password: password)
+                            print("Password successfully updated")
+                            updatePasswordCover = false
                         } catch {
-                            print("Can't update name")
+                            print("Can't update password")
                         }
                         
                     }
@@ -48,11 +48,11 @@ struct NameUpdateView: View {
                 
             }
             .padding()
-            .navigationBarTitle("Update your name", displayMode: .inline)
+            .navigationBarTitle("Update your Password", displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button("Back") {
-                        updateNameCover = false
+                        updatePasswordCover = false
                     }
                 }
             }
@@ -61,5 +61,5 @@ struct NameUpdateView: View {
 }
 
 #Preview {
-    NameUpdateView(updateNameCover: .constant(true))
+    PasswordUpdateView(updatePasswordCover: .constant(true))
 }

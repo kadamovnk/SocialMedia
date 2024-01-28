@@ -13,29 +13,32 @@ struct MainView: View {
     var body: some View {
         TabView {
             NavigationView {
-                Text("There will be your feed...")
-                    .overlay {
-                        RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                            .stroke(lineWidth: 8)
-                            .frame(width: 300, height: 400)
-                        Image(systemName: "heart.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .foregroundStyle(.red)
-                            .frame(height: 30)
-                            .offset(x: -115, y: 165)
-                        Image(systemName: "bubble.left.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 30)
-                            .offset(x: -70, y: 165)
-                        Image(systemName: "paperplane")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 30)
-                            .offset(x: -25, y: 165)
-                    }
-                    .navigationTitle("Home")
+                VStack {
+                    Text("There will be your feed...")
+                        .overlay {
+                            RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                                .stroke(lineWidth: 8)
+                                .frame(width: 300, height: 400)
+                            Image(systemName: "heart.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .foregroundStyle(.red)
+                                .frame(height: 30)
+                                .offset(x: -115, y: 165)
+                            Image(systemName: "bubble.left.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 30)
+                                .offset(x: -70, y: 165)
+                            Image(systemName: "paperplane")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 30)
+                                .offset(x: -25, y: 165)
+                        }
+                        .navigationTitle("Home")
+                    ProgressView()
+                }
             }
             .tabItem {
                     Image(systemName: "house.fill")
@@ -47,9 +50,12 @@ struct MainView: View {
                         .fontWeight(.semibold)
                 }
             NavigationView {
-                Text("Search...")
-                    .searchable(text: .constant("Searching..."))
-                    .navigationTitle("Search")
+                VStack {
+                    Text("Searching...")
+                        .searchable(text: .constant("Search..."))
+                        .navigationTitle("Search")
+                    ProgressView()
+                }
             }
                 .tabItem {
                     Image(systemName: "magnifyingglass.circle.fill")
