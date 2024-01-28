@@ -14,17 +14,29 @@ struct SignInEmailView: View {
     
     var body: some View {
         
-        VStack {
+        VStack(alignment: .leading) {
+            Text("Enter your Email:")
             TextField("Email: ", text: $viewModel.email)
                 .padding()
                 .background(Color.gray.opacity(0.4))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .autocapitalization(.none)
             
+            Text("Enter your password:")
             SecureField("Password: ", text: $viewModel.password)
                 .padding()
                 .background(Color.gray.opacity(0.4))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
+            
+            Button {
+                
+            } label: {
+                Text("Forgot your password?")
+                    .font(.headline)
+                    .padding(.vertical)
+                    
+                    
+            }
             
             Spacer()
             
@@ -32,8 +44,9 @@ struct SignInEmailView: View {
                 Task {
                     do {
                         try await viewModel.signUp()
-                        showSignInView = false
+                        //showSignInView = false
                         print("Signed Up")
+                        //NameAfterSignUpView(showSignInView: $showSignInView)
                         return
                     } catch {
                         print(error)

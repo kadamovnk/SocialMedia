@@ -16,6 +16,7 @@
 		FDAC346F2B63C9EF008A6CD5 /* SocialMediaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAC346E2B63C9EF008A6CD5 /* SocialMediaApp.swift */; };
 		FDAC34732B63C9F1008A6CD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDAC34722B63C9F1008A6CD5 /* Assets.xcassets */; };
 		FDAC34762B63C9F1008A6CD5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDAC34752B63C9F1008A6CD5 /* Preview Assets.xcassets */; };
+		FDB2CB802B66525A00590551 /* NameUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB2CB7F2B66525A00590551 /* NameUpdateView.swift */; };
 		FDE3F5DC2B64B91E00AEB7A4 /* SocialMediaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE3F5DB2B64B91E00AEB7A4 /* SocialMediaViewModel.swift */; };
 		FDE3F5E22B64BFF600AEB7A4 /* SignInEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE3F5E12B64BFF600AEB7A4 /* SignInEmailView.swift */; };
 		FDE3F5E42B64C3E500AEB7A4 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE3F5E32B64C3E500AEB7A4 /* AuthenticationManager.swift */; };
@@ -33,6 +34,7 @@
 		FDAC346E2B63C9EF008A6CD5 /* SocialMediaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaApp.swift; sourceTree = "<group>"; };
 		FDAC34722B63C9F1008A6CD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FDAC34752B63C9F1008A6CD5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FDB2CB7F2B66525A00590551 /* NameUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameUpdateView.swift; sourceTree = "<group>"; };
 		FDE3F5DB2B64B91E00AEB7A4 /* SocialMediaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaViewModel.swift; sourceTree = "<group>"; };
 		FDE3F5E12B64BFF600AEB7A4 /* SignInEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailView.swift; sourceTree = "<group>"; };
 		FDE3F5E32B64C3E500AEB7A4 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 		FD1E82E32B63CA3A00964A1F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				FDE3F5E32B64C3E500AEB7A4 /* AuthenticationManager.swift */,
 				FDE3F5DB2B64B91E00AEB7A4 /* SocialMediaViewModel.swift */,
 			);
 			path = ViewModel;
@@ -76,12 +79,12 @@
 			children = (
 				FDE3F5E72B6543E100AEB7A4 /* RootView.swift */,
 				FD1E82E72B63CEB200964A1F /* AuthentificationView.swift */,
-				FDE3F5E92B65472200AEB7A4 /* SettingsView.swift */,
-				FD1E82E52B63CA8100964A1F /* MainView.swift */,
-				FDE3F5ED2B656C1C00AEB7A4 /* MessagesView.swift */,
 				FDE3F5E12B64BFF600AEB7A4 /* SignInEmailView.swift */,
-				FDE3F5E32B64C3E500AEB7A4 /* AuthenticationManager.swift */,
-				FDE3F5EB2B656B6000AEB7A4 /* CustomCell.swift */,
+				FD1E82E52B63CA8100964A1F /* MainView.swift */,
+				FDE3F5E92B65472200AEB7A4 /* SettingsView.swift */,
+				FDE3F5ED2B656C1C00AEB7A4 /* MessagesView.swift */,
+				FDB2CB812B66B07D00590551 /* ChangesView */,
+				FDB2CB822B66B09500590551 /* TestViews */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -122,6 +125,22 @@
 				FDAC34752B63C9F1008A6CD5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FDB2CB812B66B07D00590551 /* ChangesView */ = {
+			isa = PBXGroup;
+			children = (
+				FDB2CB7F2B66525A00590551 /* NameUpdateView.swift */,
+			);
+			path = ChangesView;
+			sourceTree = "<group>";
+		};
+		FDB2CB822B66B09500590551 /* TestViews */ = {
+			isa = PBXGroup;
+			children = (
+				FDE3F5EB2B656B6000AEB7A4 /* CustomCell.swift */,
+			);
+			path = TestViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +225,7 @@
 				FDE3F5E82B6543E100AEB7A4 /* RootView.swift in Sources */,
 				FD1E82E62B63CA8100964A1F /* MainView.swift in Sources */,
 				FDE3F5EC2B656B6000AEB7A4 /* CustomCell.swift in Sources */,
+				FDB2CB802B66525A00590551 /* NameUpdateView.swift in Sources */,
 				FDE3F5DC2B64B91E00AEB7A4 /* SocialMediaViewModel.swift in Sources */,
 				FDE3F5EA2B65472200AEB7A4 /* SettingsView.swift in Sources */,
 				FDAC346F2B63C9EF008A6CD5 /* SocialMediaApp.swift in Sources */,

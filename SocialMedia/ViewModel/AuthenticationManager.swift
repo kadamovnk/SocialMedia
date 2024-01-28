@@ -45,6 +45,18 @@ final class AuthenticationManager {
         return AuthDataResultModel(user: authDataResult.user)
     }
     
+    func setUserName(displayName: String) async throws {
+        guard let user = Auth.auth().currentUser else {
+            throw URLError(.badURL)
+        }
+        let changeRequest = user.createProfileChangeRequest()
+        changeRequest.displayName = displayName
+//        changeRequest.commitChanges { error in
+//            //
+//        }
+        try await changeRequest.commitChanges()
+    }
+    
     func resetPassword(email: String) async throws {
         try await Auth.auth().sendPasswordReset(withEmail: email)
     }
@@ -68,6 +80,28 @@ final class AuthenticationManager {
             throw URLError(.badServerResponse)
         }
         try await user.delete()
+    }
+    
+    func fetchUserEmail() -> String {
+        // Check if a user is currently signed in
+        if let user = Auth.auth().currentUser {
+            // User is signed in
+            return user.email ?? "No email available"
+        } else {
+            // No user is signed in
+            return "No user signed in"
+        }
+    }
+    
+    func fetchUserName() -> String {
+        // Check if a user is currently signed in
+        if let user = Auth.auth().currentUser {
+            // User is signed in
+            return user.displayName ?? "No name available"
+        } else {
+            // No user is signed in
+            return "No user signed in"
+        }
     }
     
     func signOut() throws {

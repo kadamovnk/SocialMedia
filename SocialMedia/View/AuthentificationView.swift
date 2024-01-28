@@ -25,7 +25,7 @@ struct AuthentificationView: View {
                         .frame(height: 80)
                     Text("Social Media App")
                         .font(.title)
-                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        .fontWeight(.bold)
                         .padding(30)
                     Text("First Sign Up to Get Started")
                         .font(.headline)

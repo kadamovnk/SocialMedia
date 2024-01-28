@@ -34,8 +34,12 @@ final class SettingsViewModel:ObservableObject {
 
 struct SettingsView: View {
     
+    @State private var userEmail: String = "No user signed in"
     @StateObject private var viewModel = SettingsViewModel()
     @Binding var showSignInView: Bool
+    @State private var updateNameCover: Bool = false
+    @State private var email: String = ""
+    @State private var name: String = ""
     
     var body: some View {
         NavigationView {
@@ -44,7 +48,16 @@ struct SettingsView: View {
                 emailSection
                 accountSection
             }
+            .sheet(isPresented: $updateNameCover, onDismiss: .some({
+                name = AuthenticationManager.shared.fetchUserName()
+            }), content: {
+                NameUpdateView(updateNameCover: $updateNameCover)
+            })
             .navigationTitle("Profile")
+            .onAppear {
+                email = AuthenticationManager.shared.fetchUserEmail()
+                name = AuthenticationManager.shared.fetchUserName()
+            }
         }
     }
 }
@@ -62,9 +75,10 @@ extension SettingsView {
                 .scaledToFit()
                 .frame(width: 60, height: 60)
             VStack(alignment: .leading) {
-                Text("Nodirbek Kadamov")
+                Text("\(name)")
                     .font(.title2)
-                Text("kadamovnk@icloud.com")
+                // MARK: need to implement async throws
+                Text("\(email)")
                     .font(.subheadline)
             }
         }
@@ -72,6 +86,11 @@ extension SettingsView {
     
     private var accountSection: some View {
         Section {
+            Button {
+                updateNameCover.toggle()
+            } label: {
+                Text("Update your name")
+            }
             Button {
                 Task {
                     do {
