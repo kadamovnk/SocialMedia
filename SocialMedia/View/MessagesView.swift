@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+// Need implement real-time messaging
 struct MessagesView: View {
     
     @State var searchText: String = ""
