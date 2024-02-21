@@ -9,7 +9,10 @@ import SwiftUI
 
 struct CreateView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            Text("Create your post here...")
+                .navigationTitle("Create a post")
+        }
     }
 }
 

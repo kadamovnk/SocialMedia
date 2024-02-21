@@ -9,7 +9,12 @@ import SwiftUI
 
 struct TempView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView {
+            HomeView()
+                .tabItem { Label("Home", systemImage: "play.house") }
+            SearchView()
+                .tabItem { Label("Search", systemImage: "magnifyingglass") }
+        }
     }
 }
 

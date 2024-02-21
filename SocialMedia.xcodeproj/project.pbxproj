@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FD1E82E62B63CA8100964A1F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1E82E52B63CA8100964A1F /* MainView.swift */; };
+		FD1E82E62B63CA8100964A1F /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1E82E52B63CA8100964A1F /* TabBarView.swift */; };
 		FD1E82E82B63CEB200964A1F /* AuthentificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1E82E72B63CEB200964A1F /* AuthentificationView.swift */; };
 		FD1E82EA2B641E7700964A1F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD1E82E92B641E7700964A1F /* GoogleService-Info.plist */; };
 		FD1E82ED2B6420F700964A1F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FD1E82EC2B6420F700964A1F /* FirebaseAnalytics */; };
@@ -16,6 +16,10 @@
 		FDAC346F2B63C9EF008A6CD5 /* SocialMediaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAC346E2B63C9EF008A6CD5 /* SocialMediaApp.swift */; };
 		FDAC34732B63C9F1008A6CD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDAC34722B63C9F1008A6CD5 /* Assets.xcassets */; };
 		FDAC34762B63C9F1008A6CD5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDAC34752B63C9F1008A6CD5 /* Preview Assets.xcassets */; };
+		FDB2C3512B85CC5F00B13860 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB2C3502B85CC5F00B13860 /* HomeView.swift */; };
+		FDB2C3532B85CD9600B13860 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB2C3522B85CD9600B13860 /* SearchView.swift */; };
+		FDB2C3552B85CE3300B13860 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB2C3542B85CE3300B13860 /* CreateView.swift */; };
+		FDB2C3572B85D59100B13860 /* TempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB2C3562B85D59100B13860 /* TempView.swift */; };
 		FDB2CB802B66525A00590551 /* NameUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB2CB7F2B66525A00590551 /* NameUpdateView.swift */; };
 		FDB2CB842B66B28100590551 /* PasswordUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB2CB832B66B28100590551 /* PasswordUpdateView.swift */; };
 		FDB2CB862B66B61F00590551 /* EmailUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB2CB852B66B61F00590551 /* EmailUpdateView.swift */; };
@@ -30,13 +34,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FD1E82E52B63CA8100964A1F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		FD1E82E52B63CA8100964A1F /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		FD1E82E72B63CEB200964A1F /* AuthentificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationView.swift; sourceTree = "<group>"; };
 		FD1E82E92B641E7700964A1F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FDAC346B2B63C9EF008A6CD5 /* SocialMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAC346E2B63C9EF008A6CD5 /* SocialMediaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaApp.swift; sourceTree = "<group>"; };
 		FDAC34722B63C9F1008A6CD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FDAC34752B63C9F1008A6CD5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FDB2C3502B85CC5F00B13860 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		FDB2C3522B85CD9600B13860 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		FDB2C3542B85CE3300B13860 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
+		FDB2C3562B85D59100B13860 /* TempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempView.swift; sourceTree = "<group>"; };
 		FDB2CB7F2B66525A00590551 /* NameUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameUpdateView.swift; sourceTree = "<group>"; };
 		FDB2CB832B66B28100590551 /* PasswordUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordUpdateView.swift; sourceTree = "<group>"; };
 		FDB2CB852B66B61F00590551 /* EmailUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailUpdateView.swift; sourceTree = "<group>"; };
@@ -86,9 +94,13 @@
 				FDE3F5E72B6543E100AEB7A4 /* RootView.swift */,
 				FD1E82E72B63CEB200964A1F /* AuthentificationView.swift */,
 				FDE3F5E12B64BFF600AEB7A4 /* SignInEmailView.swift */,
-				FD1E82E52B63CA8100964A1F /* MainView.swift */,
-				FDE3F5E92B65472200AEB7A4 /* SettingsView.swift */,
+				FD1E82E52B63CA8100964A1F /* TabBarView.swift */,
+				FDB2C3502B85CC5F00B13860 /* HomeView.swift */,
+				FDB2C3522B85CD9600B13860 /* SearchView.swift */,
+				FDB2C3542B85CE3300B13860 /* CreateView.swift */,
 				FDE3F5ED2B656C1C00AEB7A4 /* MessagesView.swift */,
+				FDE3F5E92B65472200AEB7A4 /* SettingsView.swift */,
+				FDB2C3562B85D59100B13860 /* TempView.swift */,
 				FDB2CB812B66B07D00590551 /* ChangesView */,
 				FDB2CB822B66B09500590551 /* TestViews */,
 			);
@@ -233,8 +245,11 @@
 			files = (
 				FDB2CB842B66B28100590551 /* PasswordUpdateView.swift in Sources */,
 				FDE3F5E82B6543E100AEB7A4 /* RootView.swift in Sources */,
-				FD1E82E62B63CA8100964A1F /* MainView.swift in Sources */,
+				FDB2C3552B85CE3300B13860 /* CreateView.swift in Sources */,
+				FD1E82E62B63CA8100964A1F /* TabBarView.swift in Sources */,
+				FDB2C3512B85CC5F00B13860 /* HomeView.swift in Sources */,
 				FDE3F5EC2B656B6000AEB7A4 /* CustomCell.swift in Sources */,
+				FDB2C3572B85D59100B13860 /* TempView.swift in Sources */,
 				FDB2CB802B66525A00590551 /* NameUpdateView.swift in Sources */,
 				FDE3F5DC2B64B91E00AEB7A4 /* SocialMediaViewModel.swift in Sources */,
 				FDE3F5EA2B65472200AEB7A4 /* SettingsView.swift in Sources */,
@@ -242,6 +257,7 @@
 				FDAC346F2B63C9EF008A6CD5 /* SocialMediaApp.swift in Sources */,
 				FDB2CB8A2B66B91800590551 /* PictureUpdateView.swift in Sources */,
 				FDE3F5EE2B656C1C00AEB7A4 /* MessagesView.swift in Sources */,
+				FDB2C3532B85CD9600B13860 /* SearchView.swift in Sources */,
 				FDE3F5E42B64C3E500AEB7A4 /* AuthenticationManager.swift in Sources */,
 				FD1E82E82B63CEB200964A1F /* AuthentificationView.swift in Sources */,
 				FDE3F5E22B64BFF600AEB7A4 /* SignInEmailView.swift in Sources */,
