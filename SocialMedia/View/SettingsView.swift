@@ -46,35 +46,56 @@ struct SettingsView: View {
     @State private var name: String = ""
     
     var body: some View {
-        NavigationView {
-            List {
-                profileSection
-                emailSection
-                accountSection
+        VStack {
+            NavigationView {
+                List {
+                    profileSection
+                    emailSection
+                    accountSection
+                    infoBar
+                }
+                .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                            Text("Profile")
+                                .font(.largeTitle)
+                                .fontWeight(.bold)
+                                .foregroundStyle(.primary)
+                    }
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Image(systemName: "person.crop.circle")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 35, height: 35)
+                    }
+                }
+                //.navigationBarTitleDisplayMode(.inline)
+                .sheet(isPresented: $updateNameCover, onDismiss: .some({
+                    name = AuthenticationManager.shared.fetchUserName()
+                }), content: {
+                    NameUpdateView(updateNameCover: $updateNameCover)
+                })
+                .sheet(isPresented: $updatePictureCover, onDismiss: .some({
+                    // fetch picture
+                }), content: {
+                    PictureUpdateView(updatePictureCover: $updatePictureCover)
+                })
+                .sheet(isPresented: $updateEmailCover, onDismiss: {
+                    email = AuthenticationManager.shared.fetchUserEmail()
+                }, content: {
+                    EmailUpdateView(updateEmailCover: $updateEmailCover)
+                })
+                .sheet(isPresented: $updatePasswordCover, content: {
+                    PasswordUpdateView(updatePasswordCover: $updatePasswordCover)
+                })
+                //.navigationTitle("Profile")
+                .onAppear {
+                    email = AuthenticationManager.shared.fetchUserEmail()
+                    name = AuthenticationManager.shared.fetchUserName()
+                }
+                
             }
-            .sheet(isPresented: $updateNameCover, onDismiss: .some({
-                name = AuthenticationManager.shared.fetchUserName()
-            }), content: {
-                NameUpdateView(updateNameCover: $updateNameCover)
-            })
-            .sheet(isPresented: $updatePictureCover, onDismiss: .some({
-                // fetch picture
-            }), content: {
-                PictureUpdateView(updatePictureCover: $updatePictureCover)
-            })
-            .sheet(isPresented: $updateEmailCover, onDismiss: {
-                email = AuthenticationManager.shared.fetchUserEmail()
-            }, content: {
-                EmailUpdateView(updateEmailCover: $updateEmailCover)
-            })
-            .sheet(isPresented: $updatePasswordCover, content: {
-                PasswordUpdateView(updatePasswordCover: $updatePasswordCover)
-            })
-            .navigationTitle("Profile")
-            .onAppear {
-                email = AuthenticationManager.shared.fetchUserEmail()
-                name = AuthenticationManager.shared.fetchUserName()
-            }
+            
+            
         }
     }
 }
@@ -178,5 +199,9 @@ extension SettingsView {
             Text("Email functions")
         }
         
+    }
+    
+    private var infoBar: some View {
+        Text("Nodirbek Kadamov\nver: 1.0.0")
     }
 }

@@ -41,7 +41,7 @@ struct MainView: View {
                 }
             }
             .tabItem {
-                    Image(systemName: "house.fill")
+                    Image(systemName: "house")
                         .resizable()
                         .scaledToFit()
                         .frame(height: 30)
@@ -58,7 +58,7 @@ struct MainView: View {
                 }
             }
                 .tabItem {
-                    Image(systemName: "magnifyingglass.circle.fill")
+                    Image(systemName: "magnifyingglass.circle")
                         .resizable()
                         .scaledToFit()
                         .frame(height: 30)
@@ -71,7 +71,7 @@ struct MainView: View {
                     .navigationTitle("Create a post")
             }
                 .tabItem {
-                    Image(systemName: "plus.app.fill")
+                    Image(systemName: "plus.circle")
                         .resizable()
                         .scaledToFit()
                         .frame(height: 30)
@@ -92,7 +92,7 @@ struct MainView: View {
                 }
             SettingsView(showSignInView: $showSignInView)
                 .tabItem {
-                    Image(systemName: "person.crop.circle.fill")
+                    Image(systemName: "person.crop.circle")
                         .resizable()
                         .scaledToFit()
                         .frame(height: 30)
